@@ -1,0 +1,16 @@
+.canvas {
+  border: 1px black dotted;
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+}
+
+.button-group{
+}
+
+.button-group i{
+  margin: 1rem;
+  color:white;
+}
