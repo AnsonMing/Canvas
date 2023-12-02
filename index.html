@@ -98,6 +98,42 @@
       $("#drawing-line").click(() => {
         currentFunction = new DrawingLine(contextReal);
       });  
+      $("#drawing-text").click(() => {
+        currentFunction = new DrawingText(contextReal);
+      }); 
+      $("#drawing-brush").click(() => {
+        currentFunction = new DrawingBrush(contextReal);
+      }); 
+      $("#drawing-roller").click(() => {
+        currentFunction = new DrawingRoller(contextReal);
+      }); 
+      $("#drawing-circle").click(() => {
+        currentFunction = new DrawingCircle(contextReal);
+      }); 
+      $("#drawing-triangle").click(() => {
+        currentFunction = new DrawingTriangle(contextReal);
+      }); 
+      $("#drawing-stamp").click(() => {
+        currentFunction = new DrawingStamp(contextReal);
+      }); 
+      $("#drawing-bubbles").click(() => {
+        currentFunction = new DrawingBubbles(contextReal);
+      }); 
+      $("#drawing-re-reserve").click(() => {
+        currentFunction = new drawingReReserve(contextReal);
+      }); 
+      $("#drawing-reserve").click(() => {
+        currentFunction = new DrawingReserve(contextReal);
+      }); 
+      $("#drawing-eraser").click(() => {
+        currentFunction = new DrawingEraser(contextReal);
+      }); 
+      $("#drawing-delete").click(() => {
+        currentFunction = new DrawingDelete(contextReal);
+      }); 
+      $("#save").click(() => {
+        currentFunction = new Save(contextReal);
+      }); 
     })
     </script>
   </body>
