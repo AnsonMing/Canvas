@@ -21,10 +21,12 @@
       src="https://kit.fontawesome.com/f5e131fae0.js"
       crossorigin="anonymous"
     ></script>
-   
   </head>
+  <!-- body -->
   <body class="bg-dark">
+    <!-- title -->
     <h1 class="bg-dark navbar text-light">Canvas Application</h1>
+    <!-- main -->
     <div id="canvas-container" class="row m-0">
       <!-- button -->
       <div class="col row p-0 m-0 button-group" style="max-width: 160px;">
@@ -44,10 +46,18 @@
         <i class="col fa-solid fa-eraser" id="drawing-eraser"></i>
         <i class="col fa-regular fa-trash-can" is="drawing-delete"></i>
         
-        <!-- <i class="col fa-solid fa-palette"id="palette"></i> -->
-        <i class="col fa-regular fa-floppy-disk" id="save"></i>
-      </div>
+        <!-- Hold that <i class="col fa-solid fa-palette"id="palette"></i> -->
+        <i class="col-6 fa-regular fa-floppy-disk" id="save"></i>
+
+        <i class="col-12 col"></i>
+
+        <!-- custom buttom -->
+        <div class="col row" id="customBtnGroup">
+          <datalist id="datalistOptions">
+          </datalist>
+        </div>
         
+      </div>
     
       <!-- canvas -->
       <div class="col-10" id="canvas">
@@ -67,28 +77,34 @@
       
     </div>
     <div class="buttons">
-      <!-- jQuery -->
-      <script
+
+    <!-- jQuery -->
+    <script
       src="https://code.jquery.com/jquery-3.5.1.js"
       integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
       crossorigin="anonymous"
     ></script>
-    <!-- The drawing functionality  -->
-    <script
-      src="./javascript/canvas-common.js"
-      type="text/javascript"
-    ></script>
 
-    <!-- The drawing line functionality  -->
-    <script
-      src="./javascript/drawing-line.js"
-      type="text/javascript"
-    ></script>
-    <!-- The drawing rectangle functionality  -->
-    <script
-      src="./javascript/drawing-rectangle.js"
-      type="text/javascript"
-    ></script>
+    <!-- The common functionality -->
+    <script src="./javascript/canvas-common.js"></script>
+
+    <!-- The optional functionality -->
+    <script src="./javascript/drawing-line.js"></script>
+    <script src="./javascript/drawing-rectangle.js"></script>
+    <script src="./javascript/drawing-brush.js"></script>
+    <script src="./javascript/drawing-roller.js"></script>
+    <script src="./javascript/drawing-circle.js"></script>
+    <script src="./javascript/drawing-stamp.js"></script>
+    <script src="./javascript/drawing-eraser.js"></script>
+    <script src="./javascript/drawing-delete.js"></script>
+    <script src="./javascript/drawing-reserve.js"></script>
+    <script src="./javascript/drawing-re-reserve.js"></script>
+    <script src="./javascript/canvas-save.js"></script>
+    <script src="./javascript/drawing-bubbles.js"></script>
+    <script src="./javascript/drawing-text.js"></script>
+    <script src="./javascript/drawing-triangle.js"></script>
+
+    <!-- The button functionality -->
     <script type="text/javascript">
     $(()=>{
       currentFunction =  new DrawingLine(contextReal)
@@ -99,40 +115,40 @@
         currentFunction = new DrawingLine(contextReal);
       });  
       $("#drawing-text").click(() => {
-        currentFunction = new DrawingText(contextReal);
+        currentFunction = new DrawingText(contextReal, contextDraft);
       }); 
       $("#drawing-brush").click(() => {
-        currentFunction = new DrawingBrush(contextReal);
+        currentFunction = new DrawingBrush(contextReal, contextDraft);
       }); 
       $("#drawing-roller").click(() => {
-        currentFunction = new DrawingRoller(contextReal);
+        currentFunction = new DrawingRoller(contextReal, contextDraft);
       }); 
       $("#drawing-circle").click(() => {
-        currentFunction = new DrawingCircle(contextReal);
+        currentFunction = new DrawingCircle(contextReal, contextDraft);
       }); 
       $("#drawing-triangle").click(() => {
-        currentFunction = new DrawingTriangle(contextReal);
+        currentFunction = new DrawingTriangle(contextReal, contextDraft);
       }); 
       $("#drawing-stamp").click(() => {
-        currentFunction = new DrawingStamp(contextReal);
+        currentFunction = new DrawingStamp(contextReal, contextDraft);
       }); 
       $("#drawing-bubbles").click(() => {
-        currentFunction = new DrawingBubbles(contextReal);
+        currentFunction = new DrawingBubbles(contextReal, contextDraft);
       }); 
       $("#drawing-re-reserve").click(() => {
-        currentFunction = new DrawingReReserve(contextReal);
+        currentFunction = new drawingReReserve(contextReal, contextDraft);
       }); 
       $("#drawing-reserve").click(() => {
-        currentFunction = new DrawingReserve(contextReal);
+        currentFunction = new DrawingReserve(contextReal, contextDraft);
       }); 
       $("#drawing-eraser").click(() => {
-        currentFunction = new DrawingEraser(contextReal);
+        currentFunction = new DrawingEraser(contextReal, contextDraft);
       }); 
       $("#drawing-delete").click(() => {
-        currentFunction = new DrawingDelete(contextReal);
+        currentFunction = new DrawingDelete(contextReal, contextDraft);
       }); 
       $("#save").click(() => {
-        currentFunction = new Save(contextReal);
+        currentFunction = new CanvasSave(contextReal, contextDraft);
       }); 
     })
     </script>

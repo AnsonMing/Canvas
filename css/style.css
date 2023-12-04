@@ -7,10 +7,28 @@
   right: 0px;
 }
 
-.button-group{
-}
 
 .button-group i{
   margin: 1rem;
   color:white;
+}
+
+
+#setColor{
+  padding: 0px;
+  max-width: 33px;
+  max-height: 33px;
+  outline: none;
+  margin: 1rem;
+  border: none;
+  background: none;
+}
+
+#setOption, #setPx{
+  max-height: 2rem;
+  max-width: 4rem;
+  border: 1px solid white;
+  background: none;
+  padding: 0;
+  margin: 1rem;
 }
