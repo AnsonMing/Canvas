@@ -14,6 +14,7 @@ class DrawingLine extends PaintFunction {
     setCustom.reset()
     setCustom.setPx()
     setCustom.setColor()
+
   }
 
   // On mouse down, ensure that the pen has these features

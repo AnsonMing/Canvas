@@ -44,7 +44,7 @@
         <i class="col fa-solid fa-chevron-left" id="drawing-re-reserve"></i>
         <i class="col fa-solid fa-chevron-right" id="drawing-reserve"></i>
         <i class="col fa-solid fa-eraser" id="drawing-eraser"></i>
-        <i class="col fa-regular fa-trash-can" is="drawing-delete"></i>
+        <i class="col fa-regular fa-trash-can" id="drawing-delete"></i>
         
         <!-- Hold that <i class="col fa-solid fa-palette"id="palette"></i> -->
         <i class="col-6 fa-regular fa-floppy-disk" id="save"></i>
@@ -145,7 +145,7 @@
         currentFunction = new DrawingEraser(contextReal, contextDraft);
       }); 
       $("#drawing-delete").click(() => {
-        currentFunction = new DrawingDelete(contextReal, contextDraft);
+        currentFunction = new DrawingDelete(contextReal);
       }); 
       $("#save").click(() => {
         currentFunction = new CanvasSave(contextReal, contextDraft);
