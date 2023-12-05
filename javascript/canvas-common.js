@@ -129,4 +129,18 @@ let setCustom={
   getPx(){
     return document.getElementById('setPx').value
   },
+  setText(){
+    let textBtn=document.createElement('input')
+    textBtn.classList.add('form-control')
+    textBtn.classList.add('col-6')
+    textBtn.type='text'
+    textBtn.id='setText'
+    textBtn.placeholder='text'
+    textBtn.value=''
+    customGroup.appendChild(textBtn)
+    return true
+  },
+  getText(){
+    return document.getElementById('setText').value
+  },
 };

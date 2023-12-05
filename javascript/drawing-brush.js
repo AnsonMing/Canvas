@@ -5,18 +5,33 @@ class DrawingBrush extends PaintFunction {
         this.brush=document.createElement('img')
         this.brush.src='./img/pen1.png'
         setCustom.reset()
+        setCustom.setOption()
+        setCustom.addOption("S")
+        setCustom.addOption("M")
+        setCustom.addOption("L")
     }
 
     // On mouse down, ensure that the pen has these features
     onMouseDown(coord, event) {
+      switch(setCustom.getOption()){
+        case "S":this.max=15,this.min=10,this.cur=15,this.i=0;break;
+        case "M":this.max=20,this.min=13,this.cur=20,this.i=0;break;
+        case "L":this.max=25,this.min=15,this.cur=25,this.i=0;break;
+      }
       this.brush.sizes='cover'
       // Drawing the line here
-      this.context.drawImage(this.brush,coord[0]-13,coord[1]-13)
+      this.context.drawImage(this.brush,coord[0]-13,coord[1]-13,this.cur,this.cur)
     }
 
     // Clicking and removing your mouse
     onDragging(coord, event) {
-      this.context.drawImage(this.brush,coord[0]-13,coord[1]-13)
+      if(this.cur>this.min&&this.i%6==0){
+        this.cur--;
+        console.log(this.cur)
+        console.log(this.i)
+      }
+      this.i++
+      this.context.drawImage(this.brush,coord[0]-13,coord[1]-13,this.cur,this.cur)
     }
   
     onMouseMove() {}
