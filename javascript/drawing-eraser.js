@@ -4,11 +4,21 @@ class DrawingEraser extends PaintFunction {
       this.contextReal = contextReal;
       this.contextDraft = contextDraft;
       this.isDrawing = false;
+      setCustom.reset()
+      setCustom.setOption()
+      setCustom.addOption("S")
+      setCustom.addOption("M")
+      setCustom.addOption("L")
     }
   
     onMouseDown(coord, event) {
-      this.contextReal.strokeStyle = "#ffffff"; // Set the stroke color to white for erasing
-      this.contextReal.lineWidth = 10; // Set the eraser width
+      // Set the eraser width
+      switch(setCustom.getOption()){
+        case"S":this.contextReal.lineWidth = 10; break 
+        case"M":this.contextReal.lineWidth = 20; break
+        case"L":this.contextReal.lineWidth = 30; break
+      }
+      this.contextReal.strokeStyle = "#343A40"; // Set the stroke color to white for erasing
       this.contextReal.lineJoin = "round";
       this.contextReal.lineCap = "round";
       this.contextReal.globalCompositeOperation = "source-over"; // Use the "destination-out" composite operation for erasing
@@ -30,6 +40,3 @@ class DrawingEraser extends PaintFunction {
       this.isDrawing = false;
     }
   }
-  $("#drawing-eraser").click(() => {
-    currentFunction = new DrawingEraser(contextReal, contextDraft);
-  });

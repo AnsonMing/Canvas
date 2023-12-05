@@ -10,17 +10,20 @@ class DrawingRectangle extends PaintFunction {
     super();
     this.contextReal = contextReal;
     this.contextDraft = contextDraft;
+    setCustom.reset()
+    setCustom.setColor()
+    setCustom.setPx()
   }
 
   onMouseDown(coord, event) {
-    this.contextReal.fillStyle = "#f44";
+    this.contextReal.fillStyle = setCustom.getColor();
     this.origX = coord[0];
     this.origY = coord[1];
   }
 
   onDragging(coord, event) {
     // Manipulating the context draft
-    this.contextDraft.fillStyle = "#f44";
+    this.contextDraft.fillStyle = setCustom.getColor();
     // Allows you to actually draw out your squares
     this.contextDraft.clearRect(
       0,

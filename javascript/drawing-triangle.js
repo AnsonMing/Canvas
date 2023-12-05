@@ -16,9 +16,6 @@ class DrawingTriangle extends PaintFunction{
 
     onMouseDown(coord, event) {
         if(this.isFirstLine==true){
-            this.p1=[]
-            this.p2=[]
-            this.p3=[]
             this.p1=[coord[0],coord[1]];
             this.e=event;
             this.isFirstLine=false;
@@ -30,6 +27,8 @@ class DrawingTriangle extends PaintFunction{
                 canvasDraft.width,
                 canvasDraft.height
               );
+            
+            
             this.contextReal.beginPath()
             this.contextReal.moveTo(this.p2[0],this.p2[1]);
             this.contextReal.lineTo(this.p3[0],this.p3[1]);
@@ -79,7 +78,6 @@ class DrawingTriangle extends PaintFunction{
                 canvasDraft.width,
                 canvasDraft.height,
             )
-            
             this.contextDraft.moveTo(this.p2[0],this.p2[1])
             this.contextDraft.lineTo(coord[0],coord[1])
             this.contextDraft.strokeStyle=setCustom.getColor()

@@ -14,7 +14,6 @@ class DrawingLine extends PaintFunction {
     setCustom.reset()
     setCustom.setPx()
     setCustom.setColor()
-
   }
 
   // On mouse down, ensure that the pen has these features
@@ -29,6 +28,7 @@ class DrawingLine extends PaintFunction {
     this.context.beginPath();
     this.context.moveTo(coord[0], coord[1]);
   }
+  
   // Clicking and removing your mouse
   onDragging(coord, event) {
     this.draw(coord[0], coord[1]);

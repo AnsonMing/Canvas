@@ -27,7 +27,6 @@ $("#canvas-draft").mousemove(function (e) {
   }else{
     currentFunction.onMouseMove([mouseX, mouseY], e);
   }
-  
 });
 
 $("#canvas-draft").mouseup(function (e) {

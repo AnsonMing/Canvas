@@ -7,16 +7,8 @@ class DrawingText extends PaintFunction{
         setCustom.reset()
 
         setCustom.setColor()
-        setCustom.getColor()
 
         setCustom.setPx()
-        setCustom.getPx()
-        
-        setCustom.setOption()
-        setCustom.addOption('A')
-        setCustom.addOption('B')
-        setCustom.addOption('C')
-        setCustom.getOption()
       }
 
     onMouseDown() {}
