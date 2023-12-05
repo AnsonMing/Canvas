@@ -7,6 +7,9 @@
   right: 0px;
 }
 
+#canvas-real{
+  background-color: white;
+}
 
 .button-group i{
   margin: 1rem;
