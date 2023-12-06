@@ -5,7 +5,6 @@ document.getElementById("drawing-circle").addEventListener("click", function() {
     canvas.addEventListener("mouseup", circleDrawing.onMouseUp);
   });
   
-
   
   function DrawingCircle(contextReal, contextDraft) {
     let startX, startY;
@@ -26,12 +25,12 @@ document.getElementById("drawing-circle").addEventListener("click", function() {
       contextDraft.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
       contextDraft.beginPath();
       contextDraft.arc(startX, startY, radius, 0, 2 * Math.PI);
-      contextDraft.strokeStyle = "black";
+      contextDraft.strokeStyle = "black" ;
       contextDraft.lineWidth = 2;
       contextDraft.stroke();
   
       if (fillColor) {
-        contextDraft.fillStyle = fillColor;
+        contextDraft.fillStyle = setCustom.getColor();
         contextDraft.fill();
       }
     }
@@ -50,7 +49,7 @@ document.getElementById("drawing-circle").addEventListener("click", function() {
       contextReal.stroke();
   
       if (fillColor) {
-        contextReal.fillStyle = fillColor;
+        contextReal.fillStyle = setCustom.getColor();
         contextReal.fill();
       }
   
