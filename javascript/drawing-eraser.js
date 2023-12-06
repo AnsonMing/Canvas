@@ -18,7 +18,7 @@ class DrawingEraser extends PaintFunction {
         case"M":this.contextReal.lineWidth = 20; break
         case"L":this.contextReal.lineWidth = 30; break
       }
-      this.contextReal.strokeStyle = "#343A40"; // Set the stroke color to white for erasing
+      this.contextReal.strokeStyle = "white"; // Set the stroke color to white for erasing
       this.contextReal.lineJoin = "round";
       this.contextReal.lineCap = "round";
       this.contextReal.globalCompositeOperation = "source-over"; // Use the "destination-out" composite operation for erasing

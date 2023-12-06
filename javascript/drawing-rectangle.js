@@ -15,6 +15,9 @@ class DrawingRectangle extends PaintFunction {
     setCustom.reset()
     setCustom.setColor()
     setCustom.setPx()
+    setCustom.setOption()
+    setCustom.addOption('Fill')
+    setCustom.addOption('Stroke')
     this.p1=[]
     this.p2=[]
   }
@@ -33,6 +36,7 @@ class DrawingRectangle extends PaintFunction {
       canvasDraft.height,
     )
     this.contextDraft.strokeStyle=setCustom.getColor();
+    this.contextDraft.fillStyle=setCustom.getColor();
     this.contextDraft.lineWidth=setCustom.getPx();
     this.contextDraft.lineCap = "round";
     this.contextDraft.beginPath()
@@ -42,7 +46,10 @@ class DrawingRectangle extends PaintFunction {
     this.contextDraft.lineTo(this.p2[0],this.p1[1])
     this.contextDraft.lineTo(this.p1[0],this.p1[1])
     this.contextDraft.lineTo(this.p1[0],this.p2[1])
-    this.contextDraft.stroke()
+    switch(setCustom.getOption()){
+      case"Fill":this.contextDraft.fill();break;
+      case"Stroke":this.contextDraft.stroke();break;
+    }
     
     
   }
@@ -56,14 +63,18 @@ class DrawingRectangle extends PaintFunction {
     )
     this.contextReal.strokeStyle=setCustom.getColor();
     this.contextReal.lineWidth=setCustom.getPx();
-    this.contextReal.beginPath()
+    this.contextReal.fillStyle=setCustom.getColor();
+    this.contextReal.beginPath();
     this.contextReal.moveTo(this.p1[0],this.p1[1])
     this.contextReal.lineTo(this.p1[0],this.p2[1])
     this.contextReal.lineTo(this.p2[0],this.p2[1])
     this.contextReal.lineTo(this.p2[0],this.p1[1])
     this.contextReal.lineTo(this.p1[0],this.p1[1])
     this.contextReal.lineTo(this.p1[0],this.p2[1])
-    this.contextReal.stroke()
+    switch(setCustom.getOption()){
+      case"Fill":this.contextReal.fill();break;
+      case"Stroke":this.contextReal.stroke();break;
+    }
   }
   onMouseLeave() {}
   onMouseEnter() {}

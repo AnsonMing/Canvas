@@ -1,4 +1,5 @@
 class DrawingTriangle extends PaintFunction{
+    
     constructor(contextReal, contextDraft) {
         super();
         this.contextReal = contextReal;
@@ -6,14 +7,15 @@ class DrawingTriangle extends PaintFunction{
         setCustom.reset()
         setCustom.setPx()
         setCustom.setColor()
+        setCustom.setOption()
+        setCustom.addOption("Fill")
+        setCustom.addOption('Stroke')
         this.p1=[]
         this.p2=[]
         this.p3=[]
         this.isFirstLine=true;
       }
     
-    
-
     onMouseDown(coord, event) {
         if(this.isFirstLine==true){
             this.p1=[coord[0],coord[1]];
@@ -28,23 +30,23 @@ class DrawingTriangle extends PaintFunction{
                 canvasDraft.height
               );
             
+            this.contextReal.beginPath()
+            this.contextReal.moveTo(this.p1[0],this.p1[1])
+            this.contextReal.lineTo(this.p2[0],this.p2[1])
+            this.contextReal.lineTo(this.p3[0],this.p3[1])
+            this.contextReal.lineTo(this.p1[0],this.p1[1])
+            this.contextReal.fillStyle=setCustom.getColor()
+            this.contextReal.strokeStyle=setCustom.getColor()
+            this.contextReal.lineWidth=setCustom.getPx();
+
+            if(setCustom.getOption()=='Fill'){
+                this.contextReal.fill()
+                this.contextReal.stroke();
+            } else{
+                this.contextReal.lineCap = "round";
+                this.contextReal.stroke();
+            }
             
-            this.contextReal.beginPath()
-            this.contextReal.moveTo(this.p2[0],this.p2[1]);
-            this.contextReal.lineTo(this.p3[0],this.p3[1]);
-            this.contextReal.strokeStyle=setCustom.getColor();
-            this.contextReal.lineWidth=setCustom.getPx();
-            this.contextReal.lineCap = "round";
-            this.contextReal.stroke();
-
-            this.contextReal.beginPath()
-            this.contextReal.moveTo(this.p1[0],this.p1[1]);
-            this.contextReal.lineTo(this.p3[0],this.p3[1]);
-            this.contextReal.strokeStyle=setCustom.getColor();
-            this.contextReal.lineWidth=setCustom.getPx();
-            this.contextReal.lineCap = "round";
-            this.contextReal.stroke();
-
             this.isFirstLine=true;
         }
         
