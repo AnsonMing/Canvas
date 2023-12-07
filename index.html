@@ -45,6 +45,8 @@
         <i class="col fa-solid fa-chevron-right" id="drawing-reserve"></i>
         <i class="col fa-solid fa-eraser" id="drawing-eraser"></i>
         <i class="col fa-regular fa-trash-can" id="drawing-delete"></i>
+        <i class="col fa-solid fa-shuffle" id="drawing-random"></i>
+        <i class="col fa-solid fa-dice-one" id="drawing-randomcircle"></i>
         
         <!-- Hold that <i class="col fa-solid fa-palette"id="palette"></i> -->
         <i class="col-6 fa-regular fa-floppy-disk" id="save"></i>
@@ -103,6 +105,8 @@
     <script src="./javascript/drawing-bubbles.js"></script>
     <script src="./javascript/drawing-text.js"></script>
     <script src="./javascript/drawing-triangle.js"></script>
+    <script src="./javascript/drawing-random.js"></script>
+    <script src="./javascript/drawing-randomcircle.js"></script>
 
     <!-- The button functionality -->
     <script type="text/javascript">
@@ -149,6 +153,12 @@
       }); 
       $("#save").click(() => {
         currentFunction = new CanvasSave(contextReal, contextDraft);
+      }); 
+      $("#drawing-random").click(() => {
+        currentFunction = new DrawingRandom(contextReal, contextDraft);
+      }); 
+      $("#drawing-randomcircle").click(() => {
+        currentFunction = new DrawingRandomCircle(contextReal, contextDraft);
       }); 
     })
     </script>
