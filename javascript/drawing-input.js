@@ -1,4 +1,4 @@
-$("#drawing-bubbles").click(() => {
+$("#drawing-input").click(() => {
     const input = document.createElement("input");
     input.type = "file";
     input.accept = "image/*";
