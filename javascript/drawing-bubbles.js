@@ -55,4 +55,6 @@ class DrawingBubbles extends PaintFunction{
         canvasSettings.undoObject.states[canvasSettings.undoObject.actionCount].src = canvasReal.toDataURL();
         canvasSettings.undoObject.actionCount++;
     }
-}
+} 
+
+
