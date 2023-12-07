@@ -1,19 +1,25 @@
-// The redo functionality
 class DrawingReReserve {
-    constructor(contextReal, contextDraft) {
-      this.contextReal = contextReal;
-      this.contextDraft = contextDraft;
-    }
-  
-    // Implement the redo functionality
-    redo() {
-      // Clear the real canvas and redraw the saved canvas state
-      this.contextReal.clearRect(0, 0, canvasReal.width, canvasReal.height);
-      this.contextReal.drawImage(canvasDraft, 0, 0);
-    }
+  constructor(contextReal, contextDraft) {
+    this.contextReal = contextReal;
+    this.contextDraft = contextDraft;
+    this.history = []; // Array to store canvas snapshots
+    this.currentStep = -1; // Index of the current step
   }
 
-  $("#drawing-re-reserve").click(() => {
-    currentFunction = new DrawingReReserve(contextReal, contextDraft);
-    currentFunction.redo();
-  });
+  // Save a snapshot of the canvas to the history array
+  saveStep() {
+    const snapshot = this.contextReal.getImageData(0, 0, canvasReal.width, canvasReal.height);
+    this.history.push(snapshot);
+    this.currentStep++;
+  }
+
+  // Implement the redo functionality
+  redo() {
+    if (this.currentStep < this.history.length - 1) {
+      this.currentStep++;
+      const snapshot = this.history[this.currentStep];
+      this.contextReal.clearRect(0, 0, canvasReal.width, canvasReal.height);
+      this.contextReal.putImageData(snapshot, 0, 0);
+    }
+  }
+}
