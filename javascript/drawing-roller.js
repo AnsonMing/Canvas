@@ -14,7 +14,7 @@ class DrawingRoller {
       this.contextReal.lineCap = "round";
       this.contextDraft.lineCap = "round";
     }
-  
+     
     setSize(size) {
       this.size = size;
       this.contextReal.lineWidth = size;
