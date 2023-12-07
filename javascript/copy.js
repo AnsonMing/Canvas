@@ -1,3 +1,0 @@
-class DrawingLine extends PaintFunction{
-    
-}
