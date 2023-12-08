@@ -68,6 +68,7 @@ class DrawingCircle extends PaintFunction{
     }else{
       this.contextReal.stroke();
     }
+    save()
   }
 
   onMouseLeave() {}

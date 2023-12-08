@@ -60,7 +60,7 @@ class DrawingInput extends PaintFunction {
     );
 
     this.contextReal.drawImage(this.img,coord[0]-(setCustom.getPx()/2),coord[1]-(setCustom.getPx()/2),setCustom.getPx(),this.heigth)
-
+    save()
   }
   onMouseLeave() {}
   onMouseEnter() {}

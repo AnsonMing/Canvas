@@ -52,6 +52,7 @@ class DrawingRoller extends PaintFunction{
     this.contextReal.moveTo(this.p1[0],this.p1[1])
     this.contextReal.lineTo(this.p2[0],this.p2[1])
     this.contextReal.stroke();
+    save()
   }
   onMouseLeave() {}
   onMouseEnter() {}

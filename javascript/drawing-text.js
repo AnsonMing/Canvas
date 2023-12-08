@@ -37,6 +37,7 @@ class DrawingText extends PaintFunction{
       this.contextReal.font=setCustom.getPx()+"px Arial"
       this.contextReal.fillStyle=setCustom.getColor()
       this.contextReal.fillText(setCustom.getText(),coord[0],coord[1])
+      save()
       }
     
     onMouseLeave() {}

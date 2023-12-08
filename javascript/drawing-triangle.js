@@ -48,6 +48,7 @@ class DrawingTriangle extends PaintFunction{
             }
             
             this.isFirstLine=true;
+            save()
         }
         
     }
@@ -107,6 +108,7 @@ class DrawingTriangle extends PaintFunction{
         }else{
 
         }
+        
         
     }
     onMouseLeave() {}

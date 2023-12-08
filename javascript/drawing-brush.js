@@ -28,8 +28,6 @@ class DrawingBrush extends PaintFunction {
     onDragging(coord, event) {
       if(this.cur>this.min&&this.i%6==0){
         this.cur--;
-        console.log(this.cur)
-        console.log(this.i)
       }
       this.i++
       this.context.drawImage(this.brush,coord[0]-13,coord[1]-13,this.cur,this.cur)

@@ -4,6 +4,7 @@ class DrawingDelete extends PaintFunction{
         super();
         setCustom.reset()
         contextReal.clearRect(0,0,canvasReal.width,canvasReal.height)
+        save()
     }
     onMouseDown() {}
     onDragging() {}

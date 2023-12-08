@@ -38,7 +38,9 @@ class DrawingBubbles extends PaintFunction{
         
     }
     onMouseMove() {}
-    onMouseUp() {}
+    onMouseUp(coord, event) {
+        save()
+    }
     onMouseLeave() {}
     onMouseEnter() {}
     // constructor(contextReal){

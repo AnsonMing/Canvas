@@ -1,26 +1,47 @@
 // undo & redo
-doList={
-  undo:[],
-  redo:[]
-}
+
+undoli=new Array()
+redoli=new Array()
+
 
 function save(){
-  doList.undo.push(document.getElementById("canvas-real").toDataURL())
-  doList.redo=[]
+  undoli.push(canvasReal.toDataURL())
+  redoli=[]
+  console.log(undoli.length)
+  console.log(redoli.length)
 }
 
 function undo(){
-  document.getElementById("canvas-real").getContext('2d').clearRect(0,0,980,720)
-  doList.redo.push(document.getElementById("canvas-real").toDataURL())
-  let canvasImg= new Image();
-  canvasImg.src=doList.undo.pop()
-  document.getElementById("canvas-real").getContext('2d').drawImage(canvasImg,0,0,980,720)
+  console.log("undo")
+  if(undoli.length!=0){
+    
+    redoli.push(canvasReal.toDataURL())
+    
+
+    let img= new Image();
+    img.src=undoli.pop()
+    contextReal.clearRect(0,0,canvasReal.width,canvasReal.height)
+    img.onload=()=>contextReal.drawImage(img,0,0,canvasReal.width,canvasReal.height)
+    console.log(undoli.length)
+    console.log(redoli.length)
+  }else{
+    console.log('not recall')
+  }
 }
 
 function redo(){
-  document.getElementById("canvas-real").getContext('2d').clearRect(0,0,980,720)
-  doList.undo.push(document.getElementById("canvas-real").toDataURL())
-  let canvasImg= new Image();
-  canvasImg.src=doList.redo.pop()
-  canvasImg.onload=function(){document.getElementById("canvas-real").getContext('2d').drawImage(canvasImg,0,0)}
+  if (redoli.length!=0){
+    
+    undoli.push(canvasReal.toDataURL())
+    
+    
+    let img= new Image();
+    img.src=redoli.pop()
+    contextReal.clearRect(0,0,canvasReal.width,canvasReal.height)
+    img.onload=contextReal.drawImage(img,0,0,canvasReal.width,canvasReal.height)
+    console.log(undoli.length)
+    console.log(redoli.length)
+  }else{
+    console.log('not recall')
+  }
 }

@@ -38,5 +38,6 @@ class DrawingEraser extends PaintFunction {
       this.contextReal.closePath();
       this.contextReal.globalCompositeOperation = "source-over"; // Restore the default composite operation
       this.isDrawing = false;
+      save()
     }
   }

@@ -75,6 +75,7 @@ class DrawingRectangle extends PaintFunction {
       case"Fill":this.contextReal.fill();break;
       case"Stroke":this.contextReal.stroke();break;
     }
+    save()
   }
   onMouseLeave() {}
   onMouseEnter() {}
