@@ -27,7 +27,7 @@
   background: none;
 }
 
-#setOption, #setPx,#setText{
+#setOption, #setPx, #setText{
   max-height: 2rem;
   max-width: 4rem;
   border: 1px solid white;

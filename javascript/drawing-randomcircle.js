@@ -17,10 +17,9 @@ class DrawingRandomCircle extends PaintFunction {
     this.contextDraft.strokeStyle = this.color
     this.contextDraft.lineWidth = this.linewidth
     this.contextDraft.arc(coord[0], coord[1], this.radius, 0, 2 * Math.PI);
-    if(setCustom.getOption()=='Fill'){
-      this.contextDraft.fill();
-    }else{
-      this.contextDraft.stroke();
+    switch(setCustom.getOption()){
+      case"Fill":this.contextDraft.fill();break;
+      case"Stroke":this.contextDraft.stroke();break;
     }
   }
 
@@ -33,10 +32,9 @@ class DrawingRandomCircle extends PaintFunction {
     );
     this.contextDraft.beginPath();
     this.contextDraft.arc(coord[0], coord[1], this.radius, 0, 2 * Math.PI);
-    if(setCustom.getOption()=='Fill'){
-      this.contextDraft.fill();
-    }else{
-      this.contextDraft.stroke();
+    switch(setCustom.getOption()){
+      case"Fill":this.contextDraft.fill();break;
+      case"Stroke":this.contextDraft.stroke();break;
     }
   }
   onMouseMove() {}
@@ -52,10 +50,9 @@ class DrawingRandomCircle extends PaintFunction {
     this.contextReal.strokeStyle = this.color
     this.contextReal.lineWidth = this.linewidth
     this.contextReal.arc(coord[0], coord[1], this.radius, 0, 2 * Math.PI);
-    if(setCustom.getOption()=='Fill'){
-      this.contextReal.fill();
-    }else{
-      this.contextReal.stroke();
+    switch(setCustom.getOption()){
+      case"Fill":this.contextReal.fill();break;
+      case"Stroke":this.contextReal.stroke();break;
     }
   }
   onMouseLeave() {}
