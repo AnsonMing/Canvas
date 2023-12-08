@@ -13,6 +13,7 @@ class DrawingBrush extends PaintFunction {
 
     // On mouse down, ensure that the pen has these features
     onMouseDown(coord, event) {
+      save()
       switch(setCustom.getOption()){
         case "S":this.max=15,this.min=10,this.cur=15,this.i=0;break;
         case "M":this.max=20,this.min=13,this.cur=20,this.i=0;break;
@@ -35,7 +36,9 @@ class DrawingBrush extends PaintFunction {
     }
   
     onMouseMove() {}
-    onMouseUp() {}
+    onMouseUp(coord, event) {
+      
+    }
     onMouseLeave() {}
     onMouseEnter() {}
   }

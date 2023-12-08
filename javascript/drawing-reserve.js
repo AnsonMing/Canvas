@@ -1,19 +1,26 @@
-// The undo functionality
-class DrawingReserve {
-    constructor(contextReal, contextDraft) {
-      this.contextReal = contextReal;
-      this.contextDraft = contextDraft;
-    }
-  
-    // Implement the undo functionality
-    undo() {
-      // Clear the real canvas and redraw the saved canvas state
-      this.contextReal.clearRect(0, 0, canvasReal.width, canvasReal.height);
-      this.contextReal.drawImage(canvasDraft, 0, 0);
-    }
-  }
+// undo & redo
+doList={
+  undo:[],
+  redo:[]
+}
 
-  $("#drawing-reserve").click(() => {
-    currentFunction = new DrawingReserve(contextReal, contextDraft);
-    currentFunction.undo();
-  });
+function save(){
+  doList.undo.push(document.getElementById("canvas-real").toDataURL())
+  doList.redo=[]
+}
+
+function undo(){
+  document.getElementById("canvas-real").getContext('2d').clearRect(0,0,980,720)
+  doList.redo.push(document.getElementById("canvas-real").toDataURL())
+  let canvasImg= new Image();
+  canvasImg.src=doList.undo.pop()
+  document.getElementById("canvas-real").getContext('2d').drawImage(canvasImg,0,0,980,720)
+}
+
+function redo(){
+  document.getElementById("canvas-real").getContext('2d').clearRect(0,0,980,720)
+  doList.undo.push(document.getElementById("canvas-real").toDataURL())
+  let canvasImg= new Image();
+  canvasImg.src=doList.redo.pop()
+  canvasImg.onload=function(){document.getElementById("canvas-real").getContext('2d').drawImage(canvasImg,0,0)}
+}
