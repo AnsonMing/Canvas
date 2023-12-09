@@ -7,9 +7,9 @@ class DrawingInput extends PaintFunction {
 
     setCustom.reset();
     setCustom.setPx();
-    setCustom.setOption();
-    setCustom.addOption('color');
-    setCustom.addOption('b/w');
+    // setCustom.setOption();
+    // setCustom.addOption('color');
+    // setCustom.addOption('b/w');
 
     this.input = document.createElement("input");
     this.input.id='inputBtn'
