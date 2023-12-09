@@ -7,6 +7,9 @@ class DrawingInput extends PaintFunction {
 
     setCustom.reset();
     setCustom.setPx();
+    setCustom.setOption();
+    setCustom.addOption('color');
+    setCustom.addOption('b/w');
 
     this.input = document.createElement("input");
     this.input.id='inputBtn'
@@ -23,6 +26,7 @@ class DrawingInput extends PaintFunction {
         image.src = reader.result;
         image.id='inputImg'
         image.classList.add('col-12')
+        image.style.filter='grayscale(100%)'
         image.onload=function(){
           let container=document.getElementById('canvas-container')
           container.appendChild(image)
