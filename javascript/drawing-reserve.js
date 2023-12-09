@@ -1,47 +1,19 @@
-// undo & redo
+// The undo functionality
+class DrawingReserve {
+  constructor(contextReal, contextDraft) {
+    this.contextReal = contextReal;
+    this.contextDraft = contextDraft;
+  }
 
-undoli=new Array()
-redoli=new Array()
-
-
-function save(){
-  undoli.push(canvasReal.toDataURL())
-  redoli=[]
-  console.log(undoli.length)
-  console.log(redoli.length)
-}
-
-function undo(){
-  console.log("undo")
-  if(undoli.length!=0){
-    
-    redoli.push(canvasReal.toDataURL())
-    
-
-    let img= new Image();
-    img.src=undoli.pop()
-    contextReal.clearRect(0,0,canvasReal.width,canvasReal.height)
-    img.onload=()=>contextReal.drawImage(img,0,0,canvasReal.width,canvasReal.height)
-    console.log(undoli.length)
-    console.log(redoli.length)
-  }else{
-    console.log('not recall')
+  // Implement the undo functionality
+  undo() {
+    // Clear the real canvas and redraw the saved canvas state
+    this.contextReal.clearRect(0, 0, canvasReal.width, canvasReal.height);
+    this.contextReal.drawImage(canvasDraft, 0, 0);
   }
 }
 
-function redo(){
-  if (redoli.length!=0){
-    
-    undoli.push(canvasReal.toDataURL())
-    
-    
-    let img= new Image();
-    img.src=redoli.pop()
-    contextReal.clearRect(0,0,canvasReal.width,canvasReal.height)
-    img.onload=contextReal.drawImage(img,0,0,canvasReal.width,canvasReal.height)
-    console.log(undoli.length)
-    console.log(redoli.length)
-  }else{
-    console.log('not recall')
-  }
-}
+$("#drawing-reserve").click(() => {
+  currentFunction = new DrawingReserve(contextReal, contextDraft);
+  currentFunction.undo();
+});
