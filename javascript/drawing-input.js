@@ -26,7 +26,7 @@ class DrawingInput extends PaintFunction {
         image.src = reader.result;
         image.id='inputImg'
         image.classList.add('col-12')
-        image.style.filter='grayscale(100%)'
+        
         image.onload=function(){
           let container=document.getElementById('canvas-container')
           container.appendChild(image)
@@ -44,7 +44,10 @@ class DrawingInput extends PaintFunction {
   onMouseDown(coord, event) {
     this.img=document.createElement('img')
     this.img.src=document.getElementById('inputImg').src
-    
+    switch(setCustom.getOption()){
+      case'color':this.img.style.filter='';break;
+      case'b/w':this.img.style.filter='grayscale(100%)';break;
+    }
     this.heigth=Math.floor(setCustom.getPx()/(this.img.width/this.img.height))
     this.contextDraft.drawImage(this.img,coord[0]-(setCustom.getPx()/2),coord[1]-(setCustom.getPx()/2),setCustom.getPx(),this.heigth)
   }
