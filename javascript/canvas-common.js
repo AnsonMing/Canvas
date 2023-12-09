@@ -74,6 +74,7 @@ let setCustom={
   reset(){
     customGroup.innerHTML=""
     console.log("reset")
+    document.getElementById('inputImg').style.visibility='hidden'
     return true
   },
   setColor(){
