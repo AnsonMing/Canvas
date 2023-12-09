@@ -9,6 +9,7 @@ class DrawingInput extends PaintFunction {
     setCustom.setPx();
 
     this.input = document.createElement("input");
+    this.input.id='inputBtn'
     this.input.type = "file";
     this.input.accept = "image/*";
 
@@ -21,10 +22,12 @@ class DrawingInput extends PaintFunction {
         const image = document.createElement('img');
         image.src = reader.result;
         image.id='inputImg'
+        image.classList.add('col-12')
         image.onload=function(){
           let container=document.getElementById('canvas-container')
           container.appendChild(image)
-          image.style.visibility='hidden'
+          //image.style.visibility='hidden'
+          document.getElementById('inputBtn').style.visibility='hidden'
         }
       };
       reader.readAsDataURL(file);
