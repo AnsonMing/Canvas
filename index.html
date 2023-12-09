@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html class="no-js">
   <head>
@@ -50,10 +49,8 @@
         <i class="col fa-solid fa-chevron-right" id="drawing-reserve"></i>
         <i class="col fa-solid fa-eraser" id="drawing-eraser"></i>
         <i class="col fa-regular fa-trash-can" id="drawing-delete"></i>
+        <i class="col fa-brands fa-sketch" id="drawing-sketch"></i>
         
-        
-       
-
         <!-- Hold that <i class="col fa-solid fa-palette"id="palette"></i> -->
         <i class="col-6 fa-regular fa-floppy-disk" id="save"></i>
 
@@ -116,6 +113,11 @@
     <script src="./javascript/drawing-randomrectangle.js"></script>
     <script src="./javascript/drawing-randomtriangle.js"></script>
     <script src="./javascript/drawing-input.js"></script>
+    <script src="./javascript/drawing-sketch.js"></script>
+    
+    <!-- Caman-full -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/camanjs/4.1.2/caman.full.min.js"></script>
+    <canvas id="canvas-result"></canvas>
 
     <!-- The button functionality -->
     <script type="text/javascript">
@@ -149,10 +151,10 @@
         currentFunction = new DrawingBubbles(contextReal, contextDraft);
       }); 
       $("#drawing-re-reserve").click(() => {
-        undo()
+        currentFunction = new DrawingReReserve(contextReal, contextDraft);
       }); 
       $("#drawing-reserve").click(() => {
-        redo()
+        currentFunction = new DrawingReserve(contextReal, contextDraft);
       }); 
       $("#drawing-eraser").click(() => {
         currentFunction = new DrawingEraser(contextReal, contextDraft);
@@ -178,7 +180,12 @@
       $("#drawing-input").click(() => {
         currentFunction = new DrawingInput(contextReal, contextDraft);
       }); 
+      $("#drawing-sketch").click(() => {
+        currentFunction = new DrawingSketch(contextReal, contextDraft);
+      }); 
+      
     })
     </script>
   </body>
 </html>
+
